@@ -1,0 +1,40 @@
+{
+  "app.title": "Djofo.bj",
+  "app.description": "Digital Security Awareness in Benin",
+  
+  "nav.home": "Home",
+  "nav.content": "Content Center",
+  "nav.training": "Online Training",
+  "nav.community": "Community",
+  "nav.investigations": "Investigations",
+  "nav.podcasts": "Podcasts",
+
+  "home.hero.title": "Protect Yourself Against Digital Risks",
+  "home.hero.subtitle": "Djofo.bj informs and educates you about Internet risks and cybersecurity in Benin",
+  "home.hero.cta": "Discover our resources",
+  
+  "home.features.title": "How We Help You",
+  "home.features.education.title": "Education",
+  "home.features.education.description": "Learn to recognize and avoid online traps",
+  "home.features.investigations.title": "Investigations",
+  "home.features.investigations.description": "Discover real cases of scams and online fraud",
+  "home.features.community.title": "Community",
+  "home.features.community.description": "Join our community to share your experiences",
+  "home.features.training.title": "Training",
+  "home.features.training.description": "Follow our training modules for optimal protection",
+
+  "home.latestContent.title": "Latest Content",
+  "home.latestContent.viewAll": "View All",
+
+  "content.filter.all": "All",
+  "content.filter.blog": "Blog",
+  "content.filter.podcast": "Podcast",
+  "content.filter.video": "Video",
+  "content.filter.animation": "Animation",
+  
+  "footer.rights": "All rights reserved",
+  "footer.about": "About",
+  "footer.contact": "Contact",
+  "footer.privacy": "Privacy Policy",
+  "footer.terms": "Terms of Use"
+}

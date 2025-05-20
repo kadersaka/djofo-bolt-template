@@ -1,0 +1,40 @@
+{
+  "app.title": "Djofo.bj",
+  "app.description": "Sensibilisation à la sécurité numérique au Bénin",
+  
+  "nav.home": "Accueil",
+  "nav.content": "Centre de Contenu",
+  "nav.training": "Formation en Ligne",
+  "nav.community": "Communauté",
+  "nav.investigations": "Enquêtes",
+  "nav.podcasts": "Podcasts",
+
+  "home.hero.title": "Protégez-vous contre les risques numériques",
+  "home.hero.subtitle": "Djofo.bj vous informe et vous éduque sur les risques d'Internet et la cybersécurité au Bénin",
+  "home.hero.cta": "Découvrir nos ressources",
+  
+  "home.features.title": "Comment nous vous aidons",
+  "home.features.education.title": "Éducation",
+  "home.features.education.description": "Apprenez à reconnaître et à éviter les pièges en ligne",
+  "home.features.investigations.title": "Enquêtes",
+  "home.features.investigations.description": "Découvrez des cas réels d'arnaque et de fraude en ligne",
+  "home.features.community.title": "Communauté",
+  "home.features.community.description": "Rejoignez notre communauté pour partager vos expériences",
+  "home.features.training.title": "Formation",
+  "home.features.training.description": "Suivez nos modules de formation pour une protection optimale",
+
+  "home.latestContent.title": "Derniers contenus",
+  "home.latestContent.viewAll": "Voir tout",
+
+  "content.filter.all": "Tous",
+  "content.filter.blog": "Blog",
+  "content.filter.podcast": "Podcast",
+  "content.filter.video": "Vidéo",
+  "content.filter.animation": "Animation",
+  
+  "footer.rights": "Tous droits réservés",
+  "footer.about": "À propos",
+  "footer.contact": "Contact",
+  "footer.privacy": "Confidentialité",
+  "footer.terms": "Conditions d'utilisation"
+}
