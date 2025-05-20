@@ -1,15 +1,135 @@
 import React, { useState } from 'react';
-import { Filter } from 'lucide-react';
+import { Filter, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import ContentCard from '../components/common/ContentCard';
 import { contentItems } from '../data/content';
+import { useParams, useNavigate } from 'react-router-dom';
 
 type ContentCategory = 'all' | 'blog' | 'podcast' | 'video' | 'animation';
 
 const ContentPage: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<ContentCategory>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  // If we have an ID, show the detailed view
+  if (id) {
+    const content = contentItems.find(item => item.id === id);
+    
+    if (!content) {
+      return (
+        <div className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="text-center">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                {language === 'fr' ? 'Contenu non trouvé' : 'Content not found'}
+              </h1>
+              <button
+                onClick={() => navigate('/content')}
+                className="text-benin-green-600 hover:text-benin-green-700 flex items-center justify-center"
+              >
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                {language === 'fr' ? 'Retour aux contenus' : 'Back to content'}
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="py-12">
+        <div className="container mx-auto px-4">
+          <button
+            onClick={() => navigate('/content')}
+            className="text-benin-green-600 hover:text-benin-green-700 flex items-center mb-8"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            {language === 'fr' ? 'Retour aux contenus' : 'Back to content'}
+          </button>
+
+          <div className="max-w-4xl mx-auto">
+            <img
+              src={content.image}
+              alt={content.title[language]}
+              className="w-full h-64 md:h-96 object-cover rounded-lg mb-8"
+            />
+
+            <div className="prose dark:prose-invert max-w-none">
+              <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                {content.title[language]}
+              </h1>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                {content.tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <div className="text-gray-600 dark:text-gray-400 mb-8">
+                {new Date(content.date).toLocaleDateString(language === 'fr' ? 'fr-FR' : 'en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </div>
+
+              <div className="text-gray-800 dark:text-gray-200 leading-relaxed">
+                <p className="mb-6">{content.description[language]}</p>
+                
+                {/* Example content - you would replace this with actual content */}
+                <h2 className="text-2xl font-bold mb-4">
+                  {language === 'fr' ? 'Introduction' : 'Introduction'}
+                </h2>
+                <p className="mb-6">
+                  {language === 'fr'
+                    ? 'La sécurité numérique est devenue une préoccupation majeure dans notre société connectée. Avec l\'augmentation des menaces en ligne, il est crucial de comprendre comment se protéger efficacement.'
+                    : 'Digital security has become a major concern in our connected society. With the increase in online threats, it is crucial to understand how to protect ourselves effectively.'}
+                </p>
+
+                <h2 className="text-2xl font-bold mb-4">
+                  {language === 'fr' ? 'Points clés' : 'Key Points'}
+                </h2>
+                <ul className="list-disc pl-6 mb-6">
+                  <li className="mb-2">
+                    {language === 'fr'
+                      ? 'Identification des risques potentiels'
+                      : 'Identification of potential risks'}
+                  </li>
+                  <li className="mb-2">
+                    {language === 'fr'
+                      ? 'Mesures de protection essentielles'
+                      : 'Essential protection measures'}
+                  </li>
+                  <li className="mb-2">
+                    {language === 'fr'
+                      ? 'Bonnes pratiques à adopter'
+                      : 'Best practices to adopt'}
+                  </li>
+                </ul>
+
+                <h2 className="text-2xl font-bold mb-4">
+                  {language === 'fr' ? 'Conclusion' : 'Conclusion'}
+                </h2>
+                <p>
+                  {language === 'fr'
+                    ? 'La vigilance et l\'éducation sont nos meilleures défenses contre les menaces numériques. Continuez à vous informer et à partager ces connaissances avec votre entourage.'
+                    : 'Vigilance and education are our best defenses against digital threats. Continue to stay informed and share this knowledge with those around you.'}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const handleCategoryChange = (category: ContentCategory) => {
     setActiveCategory(category);
