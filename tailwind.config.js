@@ -112,7 +112,33 @@ export default {
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.900'),
+            a: {
+              color: theme('colors.benin-green.600'),
+              '&:hover': {
+                color: theme('colors.benin-green.700'),
+              },
+            },
+          },
+        },
+        dark: {
+          css: {
+            color: theme('colors.gray.100'),
+            a: {
+              color: theme('colors.benin-green.400'),
+              '&:hover': {
+                color: theme('colors.benin-green.300'),
+              },
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
