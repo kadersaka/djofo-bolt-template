@@ -19,13 +19,15 @@ function App() {
             <Route path="/" element={<MainLayout />}>
               <Route index element={<HomePage />} />
               <Route path="content" element={<ContentPage />} />
-              <Route path="content/:id" element={<ContentPage />} />
+              <Route path="blog/:id" element={<ContentPage />} />
+              <Route path="video/:id" element={<ContentPage />} />
+              <Route path="animation/:id" element={<ContentPage />} />
               <Route path="training" element={<TrainingPage />} />
               <Route path="training/:id" element={<TrainingPage />} />
               <Route path="investigations" element={<InvestigationsPage />} />
               <Route path="investigations/:id" element={<InvestigationsPage />} />
               <Route path="podcasts" element={<PodcastsPage />} />
-              <Route path="podcasts/:id" element={<PodcastsPage />} />
+              <Route path="podcast/:id" element={<PodcastsPage />} />
               <Route path="community" element={<CommunityPage />} />
             </Route>
           </Routes>

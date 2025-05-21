@@ -35,6 +35,13 @@ const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
     }).format(date);
   };
 
+  const getContentPath = (content: ContentItem) => {
+    if (content.category === 'podcast') {
+      return `/podcast/${content.id}`;
+    }
+    return `/${content.category}/${content.id}`;
+  };
+
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
       <div className="relative h-48 overflow-hidden">
@@ -75,7 +82,7 @@ const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
         </div>
         
         <Link 
-          to={`/${content.category}/${content.id}`}
+          to={getContentPath(content)}
           className="text-benin-green-600 dark:text-benin-green-400 hover:text-benin-green-700 dark:hover:text-benin-green-300 font-medium transition-colors"
         >
           {language === 'fr' ? 'Lire la suite' : 'Read more'} →
@@ -83,6 +90,4 @@ const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
       </div>
     </div>
   );
-};
-
-export default ContentCard;
+}
