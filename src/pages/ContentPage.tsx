@@ -138,10 +138,8 @@ const ContentPage: React.FC = () => {
   const filteredContent = contentItems.filter((item) => {
     const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
     const matchesSearch = 
-      item.title.fr.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.title.en.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.description.fr.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.description.en.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.title[language].toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.description[language].toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
       
     return matchesCategory && matchesSearch;
@@ -167,7 +165,7 @@ const ContentPage: React.FC = () => {
             <div className="w-full md:w-1/3">
               <input
                 type="text"
-                placeholder="Rechercher du contenu..."
+                placeholder={language === 'fr' ? "Rechercher du contenu..." : "Search content..."}
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-benin-green-500 dark:bg-gray-800 dark:text-white"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -246,7 +244,9 @@ const ContentPage: React.FC = () => {
         ) : (
           <div className="text-center py-12">
             <p className="text-gray-600 dark:text-gray-400 text-lg">
-              Aucun contenu ne correspond à votre recherche.
+              {language === 'fr' 
+                ? 'Aucun contenu ne correspond à votre recherche.'
+                : 'No content matches your search.'}
             </p>
           </div>
         )}
